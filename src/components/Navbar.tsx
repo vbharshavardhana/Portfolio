@@ -6,7 +6,7 @@ export default function Navbar() {
     <nav className="bg-[#1D2528] py-4">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="text-xl font-semibold">
-          aashutosh.dev
+          vbharshavardhana
         </Link>
         <div className="flex gap-6">
           <Link to="/" className="flex items-center gap-2 hover:text-gray-300">
@@ -17,10 +17,15 @@ export default function Navbar() {
             <Briefcase size={18} />
             Work
           </Link>
-          <Link to="/blog" className="flex items-center gap-2 hover:text-gray-300">
+          <a
+            href="https://vbharshavardhana.hashnode.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-gray-300"
+          >
             <BookOpen size={18} />
             Blog
-          </Link>
+          </a>
         </div>
       </div>
     </nav>

@@ -6,7 +6,7 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ post }: BlogCardProps) {
-  const blogUrl = `https://aashutosh.dev/${post.slug}`;
+  const blogUrl = `https://vbharshavardhana.hashnode.dev/${post.slug}`;
   
   return (
     <a href={blogUrl} 
