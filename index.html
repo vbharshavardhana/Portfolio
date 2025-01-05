@@ -2,11 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>V B Harshavardhana</title>
     <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
+    <script>
+      const setRoundedFavicon = async () => {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        const size = 64; // Favicon size
+        canvas.width = size;
+        canvas.height = size;
+
+        // Load the image
+        const img = new Image();
+        img.src = "./icon.png";
+        await img.decode();
+
+        // Draw the rounded rectangle
+        ctx.beginPath();
+        ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+        ctx.clip();
+        ctx.drawImage(img, 0, 0, size, size);
+
+        // Set the canvas as the favicon
+        const favicon = document.createElement("link");
+        favicon.rel = "icon";
+        favicon.type = "image/png";
+        favicon.href = canvas.toDataURL();
+        document.head.appendChild(favicon);
+      };
+
+      setRoundedFavicon();
+    </script>
   </head>
   <body>
     <div id="root"></div>

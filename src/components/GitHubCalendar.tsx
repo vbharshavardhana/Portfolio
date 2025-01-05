@@ -1,31 +1,39 @@
 import { useEffect, useRef } from 'react';
 
-export default function GitHubCalendar() {
+declare global {
+  interface Window {
+    GitHubCalendar: any;
+  }
+}
+
+export default function GitHubCalendarComponent() {
   const calendarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Create and append the GitHub calendar script
     const script = document.createElement('script');
     script.src = 'https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js';
     script.async = true;
     document.body.appendChild(script);
 
+    // Create and append the GitHub calendar stylesheet
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css';
     document.head.appendChild(link);
 
+    // Initialize the GitHub calendar after the script has loaded
     script.onload = () => {
-      // @ts-ignore - GitHub calendar is loaded globally
       if (calendarRef.current && window.GitHubCalendar) {
-        // @ts-ignore
         window.GitHubCalendar(calendarRef.current, "aashutoshrathi", {
-          responsive: true,
-          tooltips: true,
-          global_stats: false,
+          responsive: true,  // Make it responsive
+          tooltips: true,    // Show tooltips on hover
+          global_stats: false, // Hide global stats
         });
       }
     };
 
+    // Cleanup the script and link on component unmount
     return () => {
       document.body.removeChild(script);
       document.head.removeChild(link);
@@ -49,25 +57,7 @@ export default function GitHubCalendar() {
           '--color-calendar-graph-day-L4-bg': '#39d353',
           '--color-calendar-graph-day-border-radius': '2px'
         } as React.CSSProperties}
-      >
-        <style>{`
-          .calendar .contrib-column {
-            display: none;
-          }
-          .calendar .float-left.text-gray {
-            display: none;
-          }
-          .calendar {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-          }
-          .calendar .width-full > .float-left {
-            display: none;
-          }
-          .calendar .js-calendar-graph {
-            padding-top: 0;
-          }
-        `}</style>
-      </div>
+      />
     </div>
   );
 }
