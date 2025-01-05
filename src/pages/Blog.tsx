@@ -4,7 +4,7 @@ import BlogCard from '../components/BlogCard';
 
 const HASHNODE_QUERY = `
   query GetUserArticles {
-    user(username: "aashutoshrathi") {
+    user(username: "vbharshavardhana") {
       publication {
         posts(page: 1) {
           title
