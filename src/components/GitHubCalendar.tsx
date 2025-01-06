@@ -25,7 +25,7 @@ export default function GitHubCalendarComponent() {
     // Initialize the GitHub calendar after the script has loaded
     script.onload = () => {
       if (calendarRef.current && window.GitHubCalendar) {
-        window.GitHubCalendar(calendarRef.current, "aashutoshrathi", {
+        window.GitHubCalendar(calendarRef.current, "vbharshavardhana", {
           responsive: true,  // Make it responsive
           tooltips: true,    // Show tooltips on hover
           global_stats: false, // Hide global stats
@@ -55,7 +55,7 @@ export default function GitHubCalendarComponent() {
           '--color-calendar-graph-day-L2-bg': '#239a3b',
           '--color-calendar-graph-day-L3-bg': '#2fcb53',
           '--color-calendar-graph-day-L4-bg': '#39d353',
-          '--color-calendar-graph-day-border-radius': '2px'
+          '--color-calendar-graph-day-border-radius': '5px'
         } as React.CSSProperties}
       />
     </div>
