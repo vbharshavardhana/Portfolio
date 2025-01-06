@@ -4,8 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>V B Harshavardhana</title>
+    
+    <!-- Static Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- GitHub Calendar Scripts -->
     <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
+
+    <!-- Dynamic Rounded Favicon Script -->
     <script>
       const setRoundedFavicon = async () => {
         const canvas = document.createElement("canvas");
@@ -14,9 +21,9 @@
         canvas.width = size;
         canvas.height = size;
 
-        // Load the image
+        // Load the image from the correct path
         const img = new Image();
-        img.src = "./icon.png";
+        img.src = "/icon.png";
         await img.decode();
 
         // Draw the rounded rectangle
