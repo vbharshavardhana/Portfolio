@@ -26,9 +26,9 @@ export default function GitHubCalendarComponent() {
     script.onload = () => {
       if (calendarRef.current && window.GitHubCalendar) {
         window.GitHubCalendar(calendarRef.current, "vbharshavardhana", {
-          responsive: true,  // Make it responsive
-          tooltips: true,    // Show tooltips on hover
-          global_stats: false, // Hide global stats
+          responsive: true,
+          tooltips: true,
+          global_stats: false,
         });
       }
     };
@@ -41,21 +41,21 @@ export default function GitHubCalendarComponent() {
   }, []);
 
   return (
-    <div className="w-full max-w-4xl mx-auto mb-16">
-      <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+    <div className="w-full max-w-5xl mx-auto mb-16">
+      <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-white flex items-center gap-2">
         My GitHub Calendar
         <span role="img" aria-label="calendar">📅</span>
       </h2>
-      <div 
+      <div
         ref={calendarRef}
-        className="calendar bg-[#1D2528] p-4 rounded-lg"
+        className="calendar"
         style={{
-          '--color-calendar-graph-day-bg': '#1D2528',
+          '--color-calendar-graph-day-bg': 'transparent',
           '--color-calendar-graph-day-L1-bg': '#196127',
           '--color-calendar-graph-day-L2-bg': '#239a3b',
           '--color-calendar-graph-day-L3-bg': '#2fcb53',
           '--color-calendar-graph-day-L4-bg': '#39d353',
-          '--color-calendar-graph-day-border-radius': '5px'
+          '--color-calendar-graph-day-border-radius': '4px',
         } as React.CSSProperties}
       />
     </div>
